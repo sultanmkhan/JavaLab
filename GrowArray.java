@@ -1,3 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author sultan
+ */
+
 package University;
 public class GrowArray
 {
@@ -47,7 +58,8 @@ public class GrowArray
         g.add("b");
         g.add("c");
         g.add("d");
-        //g.set(9,"cope");
+        g.set(9,"cope");
+        g.set(13,"Sonia Darling ");
         for (int i = 0; i < g.size; i++) {
             System.out.println(i + ": " + g.get(i));
         }
@@ -56,7 +68,23 @@ public class GrowArray
     public void set(int e,String data)
     {
         if(contents.length<=e) 
-            	contents=new String[e*2];
+        {
+           String[]copyData=new String[e];
+            for (int i = 0; i < contents.length; i++) 
+            {
+                copyData[i]=contents[i];
+                               
+            }
+           
+            contents=new String[e];
+            for (int i = 0; i < copyData.length; i++) 
+            {
+                      contents[i]=copyData[i];
+            }
+        
+                    contents[e-1]=data;
+                    size=e;
+        }
             	else
         		contents[e]=data;	
     			
@@ -66,3 +94,4 @@ public class GrowArray
     
     
 }
+
